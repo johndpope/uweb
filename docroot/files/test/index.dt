@@ -48,9 +48,9 @@
 {#        {{ user.username }}#}
 {#    {% endfor %}#}
     <p>
-    <h4>testing UWEB_BOOGER and UWEB_BOOGER2 environment variable passthrough</h4>
+    <h4>testing DCMS_BOOGER and DCMS_BOOGER2 environment variable passthrough</h4>
     Note: To test create an environment variables for these set to a string and reload the page; Note the initial
-    UWEB_ prefix is stripped off when included in the settings variables.<br>
+    DCMS_ prefix is stripped off when included in the settings variables.<br>
     <br>
     settings.BOOGER: {{ b }}<br>
     settings.BOOGER2: {{ b2 }}<br>

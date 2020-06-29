@@ -120,8 +120,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
-# ITEMS BETWEEN THESE HEADINGS WILL BE UPDATED
-# ------------------------ UWEB SETTINGS ------------------------------------
+# ITEMS BETWEEN THESE HEADINGS WILL BE UPDATED; DO NOT CHANGE.  OVERRIDE VARIABLES BEFORE OR AFTER BLOCK
+# ------------------------ DOCROOT CMS SETTINGS ------------------------------------
 # add our different roots for static files to be served up
 # IMAGES_ROOT = os.path.join(BASE_DIR, "images/")
 # CACHED_ROOT = os.path.join(BASE_DIR, "cache/")
@@ -134,11 +134,11 @@ DOCROOT_ROOT = os.path.join(BASE_DIR, "docroot/files/")
 
 # add our docroot application to the installed apps and middleware initializations
 MIDDLEWARE += (
-    'uweb.middleware.DocrootFallbackMiddleware',
+    'docroot-cms.middleware.DocrootFallbackMiddleware',
 )
 INSTALLED_APPS += (
     'docroot',
-    'uweb',
+    'docroot-cms',
 )
 
 # added for a problem in the way apache handles WSGI; would like to push this to web server at some point
@@ -218,17 +218,18 @@ if DEBUG:
     }
 
 # SECURITY WARNING: keep the secret key used in production secret! (do not version .secret_key)
-# 	NOTE: if you do use a UWEB_SECRET_KEY variable which will get replaced at runtime below
+# 	NOTE: if you do use a DCMS_SECRET_KEY variable which will get replaced at runtime below
 
-# Replace any UWEB_ prefixed environment variables in settings at startup
+# Replace any DCMS_ prefixed environment variables in settings at startup
 #   NOTE: used for docker/local machine environment variable loading overrides
 #	NOTE: expect strings not complex items like below
 #this_module = sys.modules[__name__]
 #for k, v in os.environ.items():
-#    if k.startswith("UWEB_"):
+#    if k.startswith("DCMS_"):
 #        attr_key = k[5:]
 #        if attr_key:
 #            # print (f"attempting to set {attr_key} to [{str(v)}]")
 #            setattr(this_module, attr_key, v)
+# sas this is some extra stuff we should remove
 
-# ------------------------ UWEB SETTINGS ------------------------------------
+# ------------------------ DOCROOT CMS SETTINGS ------------------------------------

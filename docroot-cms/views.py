@@ -1,6 +1,3 @@
-# NOTE: DO NOT UPDATE THIS FILE - Create a new views_common.py and place any views there if you need it.  then reference
-#   your new one in the urls.py file (which should be edited by you)
-
 import os
 import logging
 import mimetypes

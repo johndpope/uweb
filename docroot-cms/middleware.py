@@ -5,11 +5,11 @@
 # data context for the page template to avoid having thousands of view functions that the url calls
 # based on a naming convention (<dev_page_name>.data.py).  Templates must be named with the .dt extension
 # so we and production web servers know what files to send to us to dynamically build.
-from django.conf import settings
 import logging
 
-from uweb import views as cms_views
-from django.http import Http404
+from . import views as cms_views
+# from django.http import Http404
+# from django.conf import settings
 # from django.core.exceptions import MiddlewareNotUsed
 
 log = logging.getLogger("docroot.middleware")

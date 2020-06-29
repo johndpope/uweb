@@ -11,7 +11,7 @@
 
 {% block page-css %}
     {{ block.super }}
-    {# UWEB CMS STYLING FOR DEFINED EDITABLE AREAS #}
+    {# DOCROOT CMS STYLING FOR DEFINED EDITABLE AREAS #}
     <style>
         .cke_show_borders {
             -moz-box-shadow: 0 0 10px 2px rgba(100, 62, 136, 0.72);
@@ -28,11 +28,11 @@
 {# todo: see about a request middleware to determine editable (minimize any db calls)  #}
 {% block page-js %}
     {{ block.super }}
-    {# WE WANT ALL PAGE DERIVITIVES TO INCLUDE JQUERY; REQUIRED FOR UWEB INTEGRATION #}
+    {# WE WANT ALL PAGE DERIVITIVES TO INCLUDE JQUERY; REQUIRED FOR DOCROOT CMS INTEGRATION #}
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    {# UWEB CKEDITOR REQUIREMENT AND CODE TO ENABLE CMS FUNCTIONS IN CKEDITOR #}
+    {# DOCROOT CMS CKEDITOR REQUIREMENT AND CODE TO ENABLE CMS FUNCTIONS IN CKEDITOR #}
     {# todo: python wrapper this with a check for loading ckeditor in the first place #}
     <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     <script type="text/javascript" charset="utf-8">

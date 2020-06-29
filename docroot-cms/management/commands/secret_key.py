@@ -1,24 +1,30 @@
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string
+from argparse import RawTextHelpFormatter
 from django.conf import settings
 
 
 class Command(BaseCommand):
-    help = "\n"
-    help += "usage: ./manage.py secret_key [option]\n"
-    help += "--------------------------------------\n"
-    help += "example: ./manage.py secret_key generate\n"
-    help += "example: ./manage.py secret_key get\n"
-    # todo: make the set secret_key replace the secret key in the settings file
+    # todo: make the set secret_key replace the secret key in the settings file and add the help back
+    help = """
+        usage: ./manage.py secret_key [option]
+        --------------------------------------
+        example: ./manage.py secret_key generate
+        example: ./manage.py secret_key get
+    
+        options
+        --------
+        generate - generates a new secret key and prints it to the screen
+        get - prints the current .secret_key value
+    """
     # help += "example: ./manage.py secret_key set [key]\n"
     # help += "example: ./manage.py secret_key set \"4h0u&vk3l(s2t#@c(-%s5_fa_=1ww02s_f6+g-_^^^s+^y8)bp\"\n"
-    help += "\n"
-    help += "options\n"
-    help += "--------\n"
-    help += "generate - generates a new secret key and prints it to the screen\n"
-    help += "get - prints the current .secret_key value\n"
     # help += "set - sets the .secret_key file value and prints it to the screen\n"
-    help += "\n"
+
+    def create_parser(self, *args, **kwargs):
+        parser = super(Command, self).create_parser(*args, **kwargs)
+        parser.formatter_class = RawTextHelpFormatter
+        return parser
 
     def add_arguments(self, parser):
         parser.add_argument('option', nargs='+', type=str)

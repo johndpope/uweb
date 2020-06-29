@@ -20,11 +20,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 # ITEMS BETWEEN THESE HEADINGS WILL BE UPDATED
-# ------------------------ UWEB URLS ------------------------------------
+# ------------------------ DOCROOT CMS URLS ------------------------------------
 # add our different urls for the cms to work
 from django.conf.urls import include
 
+# sas comment to be removed so I know this is working
 urlpatterns += [
-    path('_cms/', include('uweb.urls')),
+    path('_cms/', include('docroot-cms.urls')),
 ]
-# ------------------------ UWEB URLS ------------------------------------
+# ------------------------ DOCROOT CMS URLS ------------------------------------

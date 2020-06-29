@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # cms models
 class Content(models.Model):
     uri = models.CharField(max_length=2000, blank=True)
