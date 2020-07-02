@@ -13,7 +13,7 @@ class Command(BaseCommand):
     --------------------------------------
     example: ./manage.py docroot-cms test update
     example: ./manage.py docroot-cms update
-    
+
     options
     --------
     update - attempts to update user files with any configuration changes in settings and urls
@@ -48,11 +48,11 @@ class Command(BaseCommand):
             # settings.py changes
             local_path = pathlib.Path()
             print(f'local path: {local_path}')
-            settings_path = local_path/"docroot"/"settings.py"
+            settings_path = local_path / "docroot" / "settings.py"
             settings_append_path = module_path / "docroot_settings_append.py"
             self.append_or_replace_content(settings_path, settings_append_path)
             # urls.py changes
-            urls_path = local_path/"docroot"/"urls.py"
+            urls_path = local_path / "docroot" / "urls.py"
             urls_append_path = module_path / "docroot_urls_append.py"
             self.append_or_replace_content(urls_path, urls_append_path)
             return success_instructions
@@ -102,7 +102,7 @@ class Command(BaseCommand):
                         # backup the old file before we mess with it
                         datetime_ext = datetime.now().strftime("%Y%m%d-%H%M")
                         new_file_name = old_path.name + "." + datetime_ext
-                        shutil.copy(old_path, old_path.parent / new_file_name )
+                        shutil.copy(old_path, old_path.parent / new_file_name)
                         # write the new_content to the current file
                         if self.testing:
                             test_file_name = old_path.stem + "_new.py"
@@ -136,7 +136,7 @@ class Command(BaseCommand):
     def install(self):
         success_instructions = """
         Successfully Installed cms.
-        
+
         """
         # check that docroot app exists
         # NOTE: we will assume if there is a docroot dir then we already installed
