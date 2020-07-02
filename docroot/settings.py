@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i4z-c9@rgdrb7_-5#ad$p&8mguh8(=))^u=$le7xpi7t6=&zd-'
+SECRET_KEY = 'qu3_057(sseq_quxu_s=w*^92hhf)tc(am48)35+gz3+yjim8s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -217,19 +217,17 @@ if DEBUG:
         },
     }
 
-# SECURITY WARNING: keep the secret key used in production secret! (do not version .secret_key)
+# SECURITY WARNING: keep the secret key used in production secret!
 # 	NOTE: if you do use a DCMS_SECRET_KEY variable which will get replaced at runtime below
-
+import sys
 # Replace any DCMS_ prefixed environment variables in settings at startup
 #   NOTE: used for docker/local machine environment variable loading overrides
-#	NOTE: expect strings not complex items like below
-#this_module = sys.modules[__name__]
-#for k, v in os.environ.items():
-#    if k.startswith("DCMS_"):
-#        attr_key = k[5:]
-#        if attr_key:
-#            # print (f"attempting to set {attr_key} to [{str(v)}]")
-#            setattr(this_module, attr_key, v)
-# sas this is some extra stuff we should remove
+this_module = sys.modules[__name__]
+for k, v in os.environ.items():
+    if k.startswith("DCMS_"):
+        attr_key = k[5:]
+        if attr_key:
+            # print (f"attempting to set {attr_key} to [{str(v)}]")
+            setattr(this_module, attr_key, v)
 
 # ------------------------ DOCROOT CMS SETTINGS ------------------------------------
