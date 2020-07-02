@@ -25,7 +25,6 @@ urlpatterns = [
 # add our different urls for the cms to work
 from django.conf.urls import include
 
-# sas comment to be removed so I know this is working
 urlpatterns += [
     path('_cms/', include('docroot-cms.urls')),
 ]

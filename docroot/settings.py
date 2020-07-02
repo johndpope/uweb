@@ -190,7 +190,6 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
-
     }
 }
 if DEBUG:
@@ -217,11 +216,11 @@ if DEBUG:
         },
     }
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# 	NOTE: if you do use a DCMS_SECRET_KEY variable which will get replaced at runtime below
-import sys
+# SECURITY WARNING: keep the secret key used in production a secret!
+# NOTE: Recommend using a DCMS_SECRET_KEY environment variable which will get replaced at runtime below
 # Replace any DCMS_ prefixed environment variables in settings at startup
 #   NOTE: used for docker/local machine environment variable loading overrides
+import sys
 this_module = sys.modules[__name__]
 for k, v in os.environ.items():
     if k.startswith("DCMS_"):
